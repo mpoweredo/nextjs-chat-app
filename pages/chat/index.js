@@ -3,7 +3,7 @@ import React from 'react';
 
 const ChatPage = ({ session }) => {
 	return (
-		<div className='h-screen w-full bg-teal-900'>
+		<div className='h-screen w-full bg-slate-900'>
 			<h1>ChatPage</h1>
             <h1>{session.user.email}</h1>
 			<button onClick={() => signOut()}>logout</button>
