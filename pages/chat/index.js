@@ -1,12 +1,18 @@
 import { getSession, signOut } from 'next-auth/react';
 import React from 'react';
+import Chat from '../../components/chat/Chat';
+import LoggedAs from '../../components/user/userInfo/LoggedAs';
 
 const ChatPage = ({ session }) => {
 	return (
-		<div className='h-screen w-full bg-slate-900'>
-			<h1>ChatPage</h1>
-            <h1>{session.user.email}</h1>
-			<button onClick={() => signOut()}>logout</button>
+		<div className='h-screen w-full bg-zinc-900 flex items-center justify-center flex-col'>
+			<div>
+				<LoggedAs name={session.user.name} />
+			</div>
+			<div>
+				<Chat name={session.user.name} email={session.user.email} />
+			</div>
+			<button className='bg-slate-50 p-3' onClick={() => signOut()}>logout</button>
 		</div>
 	);
 };

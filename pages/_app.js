@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/scrollbar.css'
 import { SnackbarProvider } from 'notistack';
 
 function MyApp({ Component, pageProps }) {
