@@ -7,7 +7,6 @@ const MessageForm = ({ name, email }) => {
 
 	const sendMessageHandler = async e => {
 		e.preventDefault();
-		console.log(message);
 		if (message === '') return;
 
 		const messageObj = {
@@ -24,8 +23,6 @@ const MessageForm = ({ name, email }) => {
 					'Content-Type': 'application/json',
 				},
 			});
-            const data = await response.json()
-            console.log(data)
 		} catch (error) {
 			console.log(error)
 		}

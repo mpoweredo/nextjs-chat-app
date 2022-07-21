@@ -1,71 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import Message from './Message';
 import MessageForm from './MessageForm';
 import { CircularProgress } from '@mui/material';
-import {
-	collection,
-	endAt,
-	endBefore,
-	getDocs,
-	limit,
-	onSnapshot,
-	orderBy,
-	query,
-	startAfter,
-	startAt,
-} from 'firebase/firestore';
-import { db } from '../../data/firebase';
 import useRealtimeFetch from '../../hooks/fetchRealtime';
 
-const fetchmessages = async () => {};
-
 const Chat = ({ email, name }) => {
-	const [fetchedMessages, latestDoc] = useRealtimeFetch()
-	// const [latestDoc, setLatestDoc] = useState();
-	// const [messages, setMessages] = useState([]);
-
-	console.log(fetchedMessages.length);
-	// console.log(latestDoc);
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		const q = query(
-	// 			collection(db, 'chat-messages'),
-	// 			orderBy('createdAt', 'desc'),
-	// 			limit(25)
-	// 		);
-
-	// 		const unsubscribe = await onSnapshot(q, querySnapshot => {
-	// 			const data = [];
-	// 			console.log(querySnapshot);
-	// 			setLatestDoc(querySnapshot.docs.length - 1);
-	// 			querySnapshot.forEach(doc => {
-	// 				data.push({
-	// 					...doc.data(),
-	// 					id: doc.id,
-	// 				});
-	// 			});
-	// 			setMessages(data);
-	// 		});
-	// 	};
-
-	// 	fetchData();
-	// }, []);
-
-	// const fetchMore = async () => {
-	// 	const q = query(
-	// 		collection(db, 'chat-messages'),
-	// 		orderBy('createdAt', 'asc'),
-	// 		startAt(15),
-	// 		limit(3),
-	// 	);
-
-	// 	const querySnapshot = await getDocs(q)
-
-	// 	querySnapshot.forEach(doc => {
-	// 		console.log(doc.data())
-	// 	})
-	// }
+	const [fetchedMessages] = useRealtimeFetch()
 
 	const loadingContent = (
 		<div className='mx-auto my-auto'>
@@ -88,8 +27,6 @@ const Chat = ({ email, name }) => {
 					/>
 				))}
 			</div>
-
-			{/* <button onClick={fetchMore}>fetch more</button> */}
 			<MessageForm name={name} email={email} />
 		</div>
 	);

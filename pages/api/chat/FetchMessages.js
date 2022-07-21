@@ -1,5 +1,4 @@
-import { connectToDatabase } from '../../../utils/db-helpers/connectToDatabase';
-import { collection, doc, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../../data/firebase';
 
 const handler = async (req, res) => {

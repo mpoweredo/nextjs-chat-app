@@ -1,6 +1,5 @@
-import { doc, setDoc, addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../data/firebase";
-import { connectToDatabase } from "../../../utils/db-helpers/connectToDatabase";
 
 const handler = async (req, res) => {
 	if (req.method !== 'POST') return;
@@ -18,7 +17,7 @@ const handler = async (req, res) => {
             email,
             createdAt: serverTimestamp()
         })
-        res.status(200).json({message: 'mess'})
+        res.status(200).json({message: 'message sent sucessfully'})
         return
     } catch (error) {
         res.status(422).json({message: error.message})
@@ -32,9 +31,3 @@ const handler = async (req, res) => {
 export default handler
 
 
-
-// await setDoc(doc(db, 'chat-messages', email), {
-//     uid,
-//     email,
-//     name,
-// });

@@ -1,7 +1,5 @@
 import {
 	collection,
-	endAt,
-	endBefore,
 	limit,
 	onSnapshot,
 	orderBy,
@@ -21,14 +19,14 @@ const useRealtimeFetch = () => {
 			const q = query(
 				collection(db, 'chat-messages'),
 				orderBy('createdAt', 'desc'),
-				limit(25),
+				limit(35),
 			);
 
 			const unsubscribe = await onSnapshot(q, querySnapshot => {
 				const data = [];
-				console.log(querySnapshot)
 				setLatestDoc(querySnapshot.docs.length - 1)
 				querySnapshot.forEach(doc => {
+					// console.log(doc.data())
 					data.push({
                         ...doc.data(),
                         id: doc.id

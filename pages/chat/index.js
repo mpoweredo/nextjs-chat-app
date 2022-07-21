@@ -12,7 +12,7 @@ const ChatPage = ({ session }) => {
 			<div>
 				<Chat name={session.user.name} email={session.user.email} />
 			</div>
-			<button className='bg-slate-50 p-3' onClick={() => signOut()}>logout</button>
+			<button className=' px-5 py-2 rounded-sm font-semibold bg-slate-400 text-slate-900' onClick={() => signOut()}>logout</button>
 		</div>
 	);
 };
