@@ -21,8 +21,6 @@ const RegisterForm = () => {
 		setLoading(true);
 		const { email, name, password } = data;
 
-		console.log(email, name, password);
-
 		try {
 			const signUpResult = await fetch('/api/auth/SignUp', {
 				method: 'POST',

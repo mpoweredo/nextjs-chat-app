@@ -11,7 +11,6 @@ export default NextAuth({
 		CredentialsProvider({
 			async authorize(credentials) {
 				const { password, email } = credentials;
-				console.log(password, email);
 
 				try {
 					const client = await connectToDatabase();
@@ -34,7 +33,6 @@ export default NextAuth({
 					}
 
 					client.close();
-					console.log(user.email, user.name);
 					return { email: user.email, name: user.name };
 				} catch (error) {
 					throw new Error(error.message);

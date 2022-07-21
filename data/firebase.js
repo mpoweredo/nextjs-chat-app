@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDj6UA4rrTbjkDbx7H6AiL4tCPn2aHuDio",
-  authDomain: "nextjs-chat-app-afbfd.firebaseapp.com",
-  projectId: "nextjs-chat-app-afbfd",
-  storageBucket: "nextjs-chat-app-afbfd.appspot.com",
-  messagingSenderId: "332081449835",
-  appId: "1:332081449835:web:e60bf59e73bfcd09679a2e"
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId
 };
 
 export const app = initializeApp(firebaseConfig, 'dasd')
