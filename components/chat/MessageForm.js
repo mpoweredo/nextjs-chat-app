@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MessageForm = ({ name, email }) => {
+const MessageForm = ({ name, email, scrollToMessage }) => {
 	const [message, setMessage] = useState('');
 
 	console.log();
@@ -28,6 +28,7 @@ const MessageForm = ({ name, email }) => {
 		}
 
 		setMessage('');
+		scrollToMessage()
 	};
 
 	return (
