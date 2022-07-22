@@ -6,7 +6,8 @@ const handler = async (req, res) => {
 
 	const { message, name, email } = req.body;
 
-    if (message === '') {
+    if (message.trim() === '') {
+        res.status(422).json({message: 'Invalid input.'})
         return
     }
 
@@ -17,7 +18,7 @@ const handler = async (req, res) => {
             email,
             createdAt: serverTimestamp()
         })
-        res.status(200).json({message: 'message sent sucessfully'})
+        res.status(200).json()
         return
     } catch (error) {
         res.status(422).json({message: error.message})
