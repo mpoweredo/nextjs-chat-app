@@ -5,7 +5,6 @@ import Chat from '../../components/chat/Chat';
 import LoggedAs from '../../components/user/userInfo/LoggedAs';
 
 const ChatPage = ({ session }) => {
-	console.log(session.user.email);
 
 	const logoutHandler = async () => {
 		signOut();
