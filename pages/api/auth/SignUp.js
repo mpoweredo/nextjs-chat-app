@@ -48,6 +48,7 @@ const handler = async (req, res) => {
 			email,
 			password: hashedPassword,
 			name,
+			isOnline: true
 		});
 	} catch (error) {
 		throw new Error('Couldnt log to database!');

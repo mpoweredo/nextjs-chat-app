@@ -44,6 +44,14 @@ const LoginForm = () => {
                 return
             }
 
+			await fetch('/api/chat/ChangeOnlineStatus', {
+				method: 'POST',
+				body: JSON.stringify({email, to: true}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
 			enqueueSnackbar('Sign in successfully!', {
 				anchorOrigin: {
 					vertical: 'top',
